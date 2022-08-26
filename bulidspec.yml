@@ -21,7 +21,7 @@ phases:
       # - zip -r function.zip .
   post_build:
     commands:
-      - zip -r function.zip .      
+      - zip -r function.zip index.js      
       - echo "Updating lambda Function..."
       - aws lambda update-function-code --function-name codepipeline_ci-cd --zip-file fileb://function.zip
       - echo "DONE!!"
