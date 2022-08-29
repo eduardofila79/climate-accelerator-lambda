@@ -4,7 +4,7 @@ env:
     REACT_APP_DEMO_VAR: 'cliimate-accelerator'
 phases:
 
-  deploy:
+  build:
     commands:
       - zip -r function.zip index.js package.json package-lock.json      
       - echo "Updating lambda Function..."
