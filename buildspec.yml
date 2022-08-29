@@ -1,25 +1,10 @@
 version: 0.2
 env:
   variables:
-    REACT_APP_DEMO_VAR: 'cliimate-accelerator-testing'
+    REACT_APP_DEMO_VAR: 'cliimate-accelerator'
 phases:
-  # install:
-    # runtime-versions:
-      # nodejs: 16
-    # commands:
-      # - mkdir lambda_code
-      # - cd lambda_code
-      # - echo "Starting install - $(date)"
-      # - npm install
-      # - echo "Completed install - $(date)"
-  # build:
-    # commands:
-      # - cd lambda_code
-      # - echo "Starting build - $(date)"
-      # - npm run build
-      # - echo "Completed build - $(date)"
-      # - zip -r function.zip .
-  post_build:
+
+  deploy:
     commands:
       - zip -r function.zip index.js package.json package-lock.json      
       - echo "Updating lambda Function..."
