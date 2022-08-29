@@ -35,7 +35,7 @@ exports.handler = async ( event ) =>
         // bodyTxt: "Hi This is a test mail",
         bodyHtml: `${ mail_html }`,
         attachments: [{
-            name: "TEST_FILE_NAME.pdf",
+            name: "insuringthenetzerotransition.pdf",
             data: base64RemoveDataURI,
             encoding: "base64",
         }]
