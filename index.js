@@ -1,5 +1,7 @@
 const aws = require( "aws-sdk" );
 const MailComposer = require("nodemailer/lib/mail-composer");
+var mail_generator = require("./functions/emailGen");
+
 
 const generateRawMailData = (message) => {
     let mailOptions = {
@@ -15,7 +17,7 @@ const generateRawMailData = (message) => {
 
 exports.handler = async ( event ) =>
 {
-    const { receiverEmail, base64Data } = JSON.parse(
+    const { receiverName, receiverEmail, base64Data } = JSON.parse(
         event.body
     );
 
@@ -23,13 +25,15 @@ exports.handler = async ( event ) =>
         "data:application/pdf;base64,",
         ""
     );
+    
+    const mail_html = mail_generator( receiverName );
 
     var message = {
         fromEmail: "aaradhyasharma26@gmail.com",
         to: [receiverEmail],
-        subject: "TEST SUBJECT PWC-CLA",
-        bodyTxt: "Hi This is a test mail",
-        bodyHtml: "<h3>Hi This is a test mail for PWC-CLA</h3>",
+        subject: "Monte Carlo Rendez-Vous 2022",
+        // bodyTxt: "Hi This is a test mail",
+        bodyHtml: `${ mail_html }`,
         attachments: [{
             name: "TEST_FILE_NAME.pdf",
             data: base64RemoveDataURI,
