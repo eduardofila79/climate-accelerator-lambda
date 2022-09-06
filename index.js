@@ -32,7 +32,7 @@ exports.handler = async ( event ) =>
         fromEmail: "aaradhyasharma26@gmail.com",
         to: [ receiverEmail ],
         subject: "PwC’s turning ESG theory into action session results",
-        bodyHtml: `${ email_val }`,
+        bodyHtml: email_val,
         attachments: [ {
             name: "insuringthenetzerotransition.pdf",
             data: base64RemoveDataURI,
