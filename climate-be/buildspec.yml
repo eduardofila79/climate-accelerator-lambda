@@ -1,0 +1,18 @@
+version: 0.2
+env:
+  variables:
+    REACT_APP_DEMO_VAR: "climate-accelerator"
+phases:
+  install:
+    runtime-versions:
+      nodejs: 16
+    commands:
+      - echo "Starting install - $(date)"
+      - npm install
+      - echo "Completed install - $(date)"
+  build:
+    commands:
+      - zip -r function.zip .
+      - echo "Updating lambda Function..."
+      - aws lambda update-function-code --function-name Climate_accelarator_pdf_email --zip-file fileb://function.zip
+      - echo "DONE!!"
