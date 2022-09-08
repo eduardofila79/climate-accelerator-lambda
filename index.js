@@ -29,7 +29,7 @@ exports.handler = async ( event ) =>
     const email_val = emailTemp( receiverName );
 
     var message = {
-        fromEmail: "aaradhyasharma26@gmail.com",
+        fromEmail: "no-reply@insuringthenetzerotransition.pwc.com",
         to: [ receiverEmail ],
         subject: "PwC’s turning ESG theory into action session results",
         bodyHtml: email_val,
